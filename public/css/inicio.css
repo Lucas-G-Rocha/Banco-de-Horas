@@ -1,0 +1,174 @@
+main{
+    padding-bottom: 100px;
+    position: relative;
+}
+
+#userFunctionContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 25px;
+}
+.userButton{
+    padding: 10px 20px;
+    background-color: rgb(188 188 188);
+    cursor: pointer;
+}
+#indiceContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    column-gap: 20px;
+    row-gap: 10px;
+    padding: 0 10px 0 10px;
+}
+.indices{
+    white-space: nowrap;
+}
+#funcoesGerais{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+}
+#adicionarDiaTrabalhado{
+    padding: 10px 20px;
+    background-color: rgb(188 188 188);
+    cursor: pointer;
+}
+#filtroContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 20px;
+}
+#filtroTitle{
+    
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    
+}
+.filtroInput{
+    border: black 1px solid;
+}
+#filtroButton{
+    background-color: rgb(188 188 188);
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#diasTrabalhadosContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 80px;
+}
+#titleDiasTrabalhados{
+    font-size: 20px;
+}
+.cardContainer{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}
+.cardButtonContainer{
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    flex-wrap: wrap;
+}
+.cardButton{
+    padding: 10px 20px;
+    border: #d6d5d5 solid 1px;
+    cursor: pointer;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    flex-wrap: wrap;
+
+    background-color: #EFEFEF;
+    border: #d6d5d5 solid 1px;
+    padding: 30px 0;
+    width: 300px;
+}
+.horasContainer, .entradasESaidasContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    justify-content: center;
+}
+.horasTrabalhadasContainer, .horasExtrasContainer, .entradasContainer, .saidasContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+
+}
+.entradasESaidasContainer{
+    column-gap: 80px;
+}
+#overlay{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.475);
+    justify-content: center;
+    align-items: center;
+}
+#adicionarDiaTrabalhadoForm{
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    max-width: 500px;
+    min-width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+    border-radius: 15px;
+}
+#fechar{
+    margin-left: auto;
+    background-color: rgb(66, 227, 230);
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+#titleDiaTrabalhadoForm{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+
+}
+.formSubmitButton{
+    background-color: rgb(66, 227, 230);
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+

@@ -1,0 +1,80 @@
+<main id="main">
+    {{> header}}
+
+    <div id="userFunctionContainer">
+        <button class="userButton">Editar Usuario</button>
+        <button class="userButton">Editar Senha</button>
+    </div>
+    <hr class="linha">
+
+    <div id="indiceContainer">
+        <p class="indices">Dias Trabalhados: {{#if dias_trabalhados}}{{dias_trabalhados}}{{else}}dado inexistente{{/if}}
+        </p>
+
+        <p class="indices">Horas Trabalhadas: {{#if horas_trabalhadas}}{{horas_trabalhadas}}{{else}}dado
+            inexistente{{/if}}</p>
+
+        <p class="indices">Horas Extras: {{#if horas_extras}}{{horas_extras}}{{else}}dado inexistente{{/if}}</p>
+    </div>
+
+    <div id="funcoesGerais">
+        <button id="adicionarDiaTrabalhado">Adicionar Dia Trabalhado</button>
+        <div id="filtroContainer">
+            <h2 id="filtroTitle">FILTRO</h2>
+            <label for="date1">De</label>
+            <input type="date" name="date1" id="date1" class="filtroInput">
+
+            <label for="date2"> À </label>
+            <input type="date" name="date2" id="date2" class="filtroInput">
+        </div>
+        <button id="filtroButton">Filtrar</button>
+    </div>
+
+    <!-- Modelo do card -->
+    <div id="diasTrabalhadosContainer">
+        <h1 id="titleDiasTrabalhados">DIAS TRABALHADOS</h1>
+        {{#if document}}
+        {{#each document}}
+        <div class="cardContainer">
+            <div class="cardButtonContainer">
+                <button class="cardButton editButton" data-id="{{#if this._id}}{{this._id}}{{else}}'none'{{/if}}">Editar</button>
+                <button class="cardButton removeButton" data-id="{{#if this._id}}{{this._id}}{{else}}'none'{{/if}}">Remover</button>
+            </div>
+            <div class="card">
+                <div>
+                    <p class="date">{{#if this.date}}{{this.date}}{{else}}Dado inexistente{{/if}}</p>
+                </div>
+                <div class="horasContainer">
+                    <div class="horasTrabalhadasContainer">
+                        <h3 class="sectionTitle">Horas Trabalhadas</h3>
+                        <p class="content">{{#if this.horasTrabalhadas}}{{this.horasTrabalhadas}}{{else}}Dado inexistente{{/if}}</p>
+                    </div>                    
+                    <div class="horasExtrasContainer">
+                        <h3 class="sectionTitle">Horas Extras</h3>
+                        <p class="content">{{#if this.horasExtras}}{{this.horasExtras}}{{else}}Dado inexistente{{/if}}</p>
+                    </div>                    
+                </div>
+                <div class="entradasESaidasContainer">
+                    <div class="entradasContainer">
+                        <h3 class="sectionTitle">Entradas</h3>
+                        <p class="content">{{#if this.primeiraEntrada}}{{this.primeiraEntrada}}{{else}}Dado inexistente{{/if}}</p>
+                        <p class="content">{{#if this.segundaEntrada}}{{this.segundaEntrada}}{{else}}Dado inexistente{{/if}}</p>
+                    </div>
+                    <div class="saidasContainer">
+                        <h3 class="sectionTitle">Saidas</h3>
+                        <p class="content">{{#if this.primeiraSaida}}{{this.primeiraSaida}}{{else}}Dado inexistente{{/if}}</p>
+                        <p class="content">{{#if this.segundaSaida}}{{this.segundaSaida}}{{else}}Dado inexistente{{/if}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <h1 id="dadosInexistentes">Não foi achado um dia cadastrado em nosso banco de dados</h1>
+        {{/if}}
+    </div>
+</main>
+
+<script src="./js/criarFormularioDiaTrabalhado.js"></script>
+<script src="./js/adicionarDiaTrabalhado.js"></script>
+<script src="./js/removerEEditarDiaTrabalhado.js"></script>

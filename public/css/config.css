@@ -1,0 +1,43 @@
+*{
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 14px;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+#header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #23F771;
+}
+#titleHeader{
+    text-decoration: none;
+    color: black;
+    margin-left: 24px;
+    font-size: 20px;
+    /*font-family: inknut antiqua*/
+}
+#deslogarHeader{
+    background-color: transparent;
+    padding: 10px;
+    margin-right: 25px;
+    font-size: 16px;
+}
+.linha{
+    margin: 25px 0 25px 0;
+    background-color: rgb(139, 139, 139);
+    height: 0.5px;
+}
