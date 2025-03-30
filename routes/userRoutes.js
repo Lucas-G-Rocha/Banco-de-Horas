@@ -38,7 +38,7 @@ routes.delete('/api/removerDiaTrabalhado', async (req, res) => {
 routes.patch('/api/editarDiaTrabalhado', async (req, res) => {
     edicaoDeDiaTrabalhado(req, res);
 });
-routes.get('/api/pegarDiaTrabalhado', async (req, res) => {
+routes.post('/api/pegarDiaTrabalhado', async (req, res) => {
     pegarDiaTrabalhado(req, res);
 })
 

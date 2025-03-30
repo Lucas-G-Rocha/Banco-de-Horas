@@ -6,7 +6,7 @@ module.exports.timeToNumber = (time) => {
 }
 module.exports.numberToTime = (hours) => {
     let minutes = 0;
-    if(hours % 1 != 0){
+    if (hours % 1 != 0) {
         const valorQuebrado = (hours % 1);
         hours = hours - valorQuebrado;
         // console.log('\nValor Quebrado' + valorQuebrado);
@@ -15,13 +15,13 @@ module.exports.numberToTime = (hours) => {
         minutes = valorQuebrado * 60
         // console.log("NumberToTime: " + "Minutes -> " + minutes);
     }
-    if(minutes > 60){
+    if (minutes > 60) {
         hours++;
         minutes = minutes - 60;
         // console.log('\nMinutos' + minutes);
         // console.log('Horas' + hours);
     }
-    if(minutes == 60){
+    if (minutes == 60) {
         hours++;
         minutes = 0;
         // console.log('\nMinutos' + minutes);
@@ -29,15 +29,15 @@ module.exports.numberToTime = (hours) => {
     }
     minutes = parseInt(minutes);
     let negative = false;
-    if(minutes < 0){
-       minutes = Math.abs(minutes)
-       negative = true;
+    if (minutes < 0) {
+        minutes = Math.abs(minutes)
+        negative = true;
     }
-    if(hours < 0){
+    if (hours < 0) {
         hours = Math.abs(hours);
         negative = true;
     }
-    if(negative){
+    if (negative) {
         return `- ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}h`;
     }
     const result = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}h`;

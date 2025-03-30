@@ -59,10 +59,13 @@ function criarFormularioParaAdicionarDiaTrabalhado() {
     return overlay;
 }
 
-function criarFormularioParaEditarDiaTrabalhado(titulo) {
+function criarFormularioParaEditarDiaTrabalhado(titulo, inputValue, buttonID) {
     const form = document.createElement('form');
-    form.id = 'adicionarDiaTrabalhadoForm';
-
+    form.id = 'editarDiaTrabalhadoForm';
+    form.dataset.id = buttonID;
+    let dataFormatada = inputValue.diaTrabalhado.date.split('/');
+    inputValue.diaTrabalhado.date = String(dataFormatada[2] + '-' + dataFormatada[1] + '-' + dataFormatada[0]);
+    console.log(inputValue);
     // Botão Fechar
     const fechar = document.createElement('button');
     fechar.id = 'fechar';
@@ -99,6 +102,23 @@ function criarFormularioParaEditarDiaTrabalhado(titulo) {
         input.name = campo.name;
         input.id = campo.id;
         input.classList.add("formInput");
+
+        if(campo.name === "date"){
+            
+            input.value = inputValue.diaTrabalhado.date;
+        }
+        if(campo.name === "primeiraEntrada"){
+            input.value = inputValue.diaTrabalhado.primeiraEntrada.replace('h', '');
+        }
+        if(campo.name === "primeiraSaida"){
+            input.value = inputValue.diaTrabalhado.primeiraSaida.replace('h', '');
+        }
+        if(campo.name === "segundaEntrada"){
+            input.value = inputValue.diaTrabalhado.segundaEntrada.replace('h', '');
+        }
+        if(campo.name === "segundaSaida"){
+            input.value = inputValue.diaTrabalhado.segundaSaida.replace('h', '');
+        }
 
         div.appendChild(label);
         div.appendChild(input);

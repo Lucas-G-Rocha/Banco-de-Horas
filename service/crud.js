@@ -1,7 +1,7 @@
 const Trabalhados = require('../models/trabalhados');
 
 const { timeToNumber, hoursToMinutes, somarTodosOsMinutos, diferencaEntreHorarios } = require('../globalFunctions/timeFunctions');
-
+const { formatarDiaTrabalhado } = require('../globalFunctions/funcoesCompostas');
 module.exports.cadastroDiaTrabalhado_service = async (diaTrabalhado) => {
     console.log("aqui");
     console.log(diaTrabalhado);
@@ -71,14 +71,12 @@ module.exports.remocaoDeDiaTrabalhado_service = async (diaID) => {
 
 module.exports.edicaoDeDiaTrabalhado_service = async (data) => {
     const diaTrabalhado = await Trabalhados.findOne({_id: data._id}).select('date primeiraEntrada primeiraSaida segundaEntrada segundaSaida');
-
+    
     if (!diaTrabalhado) {
         throw new Error('dia trabalhado não encontrado');
     }
-
+    
     let newData = EDICAO_verificacaoETransformacaoDosValores(data, diaTrabalhado);
-
-
     
     const minutosPorTurno = diferencaEntreHorarios(newData);
     newData.horasTrabalhadas = minutosPorTurno[0] + minutosPorTurno[1];
@@ -97,14 +95,33 @@ module.exports.edicaoDeDiaTrabalhado_service = async (data) => {
             primeiraSaida: newData.primeiraSaida,
             segundaEntrada: newData.segundaEntrada,
             segundaSaida: newData.segundaSaida,
-
+            
             horasTrabalhadas: newData.horasTrabalhadas,
             horasExtras: newData.horasExtras
         }
     });
     return result;
 }
+module.exports.pegarDiaTrabalhado_service = async (diaID) => {
+    if(diaID){
+        const diaTrabalhado = await Trabalhados.findOne({_id: diaID}).select('date primeiraEntrada primeiraSaida segundaEntrada segundaSaida horasTrabalhadas horasExtras').lean();
+        console.log(diaTrabalhado);
+        if(diaTrabalhado){
+            const diaTrabalhadoFormatado = formatarDiaTrabalhado(diaTrabalhado);
+            console.log('passou');
+            console.log(diaTrabalhadoFormatado);
 
+            return diaTrabalhadoFormatado;
+        }else{
+            throw new Error('Erro ao procurar o dia trabalhado');
+        }
+    }else{
+        throw new Error('Erro ao receber o ID');
+    }
+}
+
+
+//Funções Locais
 function EDICAO_verificacaoETransformacaoDosValores(data, diaTrabalhado) {
     let newData;
     if (data._id) {
@@ -161,12 +178,4 @@ function EDICAO_verificacaoETransformacaoDosValores(data, diaTrabalhado) {
     }
     return newData;
 
-}
-
-module.exports.pegarDiaTrabalhado = (diaID) => {
-    if(diaID){
-        const diaTrabalhado = Trabalhados.findOne({_id: diaID}).select('date primeiraEntrada primeiraSaida segundaEntrada segundaSaida horasTrabalhadas horasExtras').lean();
-        console.log(diaTrabalhado);
-        if(diaTrabalhado) return diaTrabalhado
-    }
 }

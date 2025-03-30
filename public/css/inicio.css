@@ -37,10 +37,13 @@ main{
     align-items: center;
     row-gap: 20px;
 }
-#adicionarDiaTrabalhado{
+#adicionarDiaTrabalhado, .funcoesGeraisButton{
     padding: 10px 20px;
     background-color: rgb(188 188 188);
     cursor: pointer;
+}
+.funcoesGeraisButton{
+    background-color: rgb(255, 37, 37);
 }
 #filtroContainer{
     display: flex;
@@ -135,7 +138,7 @@ main{
     justify-content: center;
     align-items: center;
 }
-#adicionarDiaTrabalhadoForm{
+#adicionarDiaTrabalhadoForm, #editarDiaTrabalhadoForm{
     background-color: rgb(255, 255, 255);
     width: 50%;
     max-width: 500px;

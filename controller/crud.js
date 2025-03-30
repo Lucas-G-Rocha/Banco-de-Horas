@@ -35,7 +35,7 @@ module.exports.remocaoDeDiaTrabalhado = async (req, res) => {
 //Editar dia trabalhado
 module.exports.edicaoDeDiaTrabalhado = async (req, res) => {
     try{
-        const data = req.body;
+        const {data} = req.body;
         const result = await edicaoDeDiaTrabalhado_service(data)
 
         if(result.modifiedCount > 0){
@@ -48,12 +48,14 @@ module.exports.edicaoDeDiaTrabalhado = async (req, res) => {
     }
 }
 
-module.exports.pegarDiaTrabalhado_service = async (req, res) => {
+module.exports.pegarDiaTrabalhado = async (req, res) => {
     try{
-        const diaID = req.body;
+        const {diaID} = req.body;
         const diaTrabalhado = await pegarDiaTrabalhado_service(diaID);
         if(diaTrabalhado){
             res.status(200).json({sucess: true, diaTrabalhado: diaTrabalhado});
+        }else{
+            throw new Error('Ocorreu um erro ao conseguir os dados');
         }
     }catch(err){
         res.status(400). json({sucess: false, message: err.message});
