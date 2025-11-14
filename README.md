@@ -41,7 +41,7 @@ Embora o sistema ainda não esteja completo, **ele já é totalmente funcional n
 
 2. **Instale as dependências:**
 
-npm install
+`npm install`
 
 
 Crie um arquivo .env com suas variáveis de ambiente:
@@ -52,12 +52,12 @@ PORT=3000
 
 3. **Inicie o servidor:**
 
-npm start
+`npm start`
 
 
 Acesse em:
 
-http://localhost:3000
+`http://localhost:3000`
 
 ## 📌 Status do Projeto
 
